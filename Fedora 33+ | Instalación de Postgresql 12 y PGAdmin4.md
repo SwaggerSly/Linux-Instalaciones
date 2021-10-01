@@ -50,7 +50,7 @@ Para tener acceso remoto a PostgreSQL es necesario editar dos archivos de config
 
 ```
 # Configuración del archivo "postgresql.conf" mediante "nano"
-$ sudo nano /var/lib/pgsql/12/data/postgresql.conf
+$ sudo nano /var/lib/pgsql/13/data/postgresql.conf
 
 # Se buscará la linea con la  siguiente instrucción  "  #listen_addresses=’listen’  "
 # Se modificara de la siguiente manera
@@ -60,11 +60,11 @@ listen_addresses = '*'
 $ sudo nano /var/lib/pgsql/13/data/pg_hba.conf
 
 # Se modificara la linea que contiene la conexion de "IPv4"
-# host         all         all         127.0.0.1/32         ident
+# host         all         all         127.0.0.1/32        scram-sha-256 
 # A 
 host         all         all         127.0.0.1/32         md5
 
-# Además se agregará una nueva conexión debajo de la linea anterior con la IP del Servidor POstgresql
+# Además se agregará una nueva conexión debajo de la linea anterior con la IP del Servidor Postgresql
 host         all         all         xxx.xxx.xxx.xxx/32   md5
 
 ```
