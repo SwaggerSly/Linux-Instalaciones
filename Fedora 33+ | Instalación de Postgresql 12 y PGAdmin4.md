@@ -1,13 +1,13 @@
 
-## Fedora 33+ | Instalación de Postgresql 12 y PGAdmin4
+## Fedora 33+ | Instalación de Postgresql 13
 
 ```
 
-$ sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-33-x86_64/pgdg-fedora-repo-latest.noarch.rpm$ 
-$ sudo dnf install -y postgresql12-server
-$ sudo /usr/pgsql-12/bin/postgresql-12-setup initdb
-$ sudo systemctl enable postgresql-12
-$ sudo systemctl start postgresql-12
+$ sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-34-x86_64/pgdg-fedora-repo-latest.noarch.rpm
+$ sudo dnf install -y postgresql13-server
+$ sudo /usr/pgsql-13/bin/postgresql-13-setup initdb
+$ sudo systemctl enable postgresql-13
+$ sudo systemctl start postgresql-13
 
 ```
 
@@ -38,8 +38,8 @@ $ ALTER USER postgres WITH password 'xxxx';
 
 ```
 
-$ sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-1-1.noarch.rpm
-$ sudo yum install pgadmin4
+$ sudo rpm -i https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-2-1.noarch.rpm
+$ sudo yum install pgadmin4-desktop
 
 
 ```
@@ -57,7 +57,7 @@ $ sudo nano /var/lib/pgsql/12/data/postgresql.conf
 listen_addresses = '*'
 
 # Configuración del archivo "pg_hba.conf" mediante "nano"
-$ sudo vi /var/lib/pgsql/11/data/pg_hba.conf
+$ sudo nano /var/lib/pgsql/13/data/pg_hba.conf
 
 # Se modificara la linea que contiene la conexion de "IPv4"
 # host         all         all         127.0.0.1/32         ident
