@@ -36,7 +36,7 @@ $ sudo yum install pgadmin4-desktop
 
 ## Post-installation de PgAdmin
 
-Para tener acceso remoto a PostgreSQL es necesario editar dos archivos de configuración: postgresql.conf y pg_hba.conf
+Para tener acceso remoto a PostgreSQL es necesario editar dos archivos de configuración: `postgresql.conf` y `pg_hba.conf`
 
 ```
 # Configuración del archivo "postgresql.conf" mediante "nano"
@@ -59,7 +59,7 @@ host         all         all         xxx.xxx.xxx.xxx/32   md5
 ```
 ## psql: error: FATAL:  la autentificación Peer falló para el usuario «nuevo_usuario»
 
-Para arreglar este error es necesario entrar al archivo de configuración `sudo nano /var/lib/pgsql/`tu_version_postgres`/data/pg_hba.conf`.
+Para arreglar este error es necesario entrar al archivo de configuración `$ sudo nano /var/lib/pgsql/13/data/pg_hba.conf`.
 
 El cual mostrará algo como esto:
 ```
@@ -97,5 +97,16 @@ host    replication     all             ::1/128                 md5
 ```
 Por último queda reiniciar los servicios de postgres con el siguiente comando:
 ```
-sudo service postgresql-12 restart
+$ sudo service postgresql-12 restart
+```
+
+# Entrar con el nuevo usuario en psql
+
+```
+$ psql -U Nuevo_Usuario -d Nombre_DB -W
+```
+# Inicie sesión en psql y configure su contraseña
+```
+$ psql -U postgres
+db> ALTER USER postgres with password 'your-pass';
 ```
